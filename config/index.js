@@ -50,7 +50,9 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),// 编译输出的静态资源路径
     assetsSubDirectory: 'static',// 编译输出的二级目录
-    assetsPublicPath: './',// 编译发布的根目录，可配置为资源服务器域名或 CDN 域名
+    assetsPublicPath: './',// 编译发布的根目录，可配置为资源服务器域名或 CDN 域名 
+    // vue项目发布到github上 需要改为 ./  .gitignore文件要不能忽略dist npm run build 打包上传到github上 网页输入https://huangchunhong.github.io/vue_test/dist/#/ 就可以浏览
+
 
     /**
      * Source Maps

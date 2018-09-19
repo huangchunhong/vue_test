@@ -1,113 +1,59 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div>
+    <swiper :list="swiperList" v-model="swiperList_index" @on-index-change="swiperListChange"></swiper>
+  
   </div>
 </template>
 
 <script>
+import { Group, Cell,Swiper } from 'vux'
+import { create } from 'domain';
+
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  components: {
+    Group,
+    Cell,
+    Swiper,
+  },
+  data(){
+    return{
+      swiperList:[{
+        url: 'javascript:',
+        img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg',
+        title: '送你一朵fua'
+      }, {
+        url: 'javascript:',
+        img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw1k2wj20p00goq7n.jpg',
+        title: '送你一辆车'
+      }, {
+        url: 'javascript:',
+        img: 'https://static.vux.li/demo/5.jpg', // 404
+        title: '送你一次旅行',
+        fallbackImg: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw50iwj20ff0aaaci.jpg'
+      }],
+      swiperList_index:"",
     }
-  }
+  },
+  methods:{
+    swiperListChange(index){
+      this.swiperList_index = index
+    },
+  },
+  created() {
+    // this.$vux.toast.show({
+    //   text: 'Loading'
+    // })
+
+  },
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+  .flex-demo {
+    text-align: center;
+    color: #fff;
+    background-color: #20b907;
+    border-radius: 4px;
+    background-clip: padding-box;
+  }
 </style>
+
