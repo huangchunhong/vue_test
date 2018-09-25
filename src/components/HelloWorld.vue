@@ -1,7 +1,7 @@
 <template>
   <div>
     <swiper :list="swiperList" v-model="swiperList_index" @on-index-change="swiperListChange"></swiper>
-  
+    
   </div>
 </template>
 
