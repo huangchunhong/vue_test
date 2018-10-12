@@ -1,7 +1,7 @@
 <template>
   <div>
     <swiper :list="swiperList" v-model="swiperList_index" @on-index-change="swiperListChange"></swiper>
-    
+    <button @click="click"> 点击这里</button>
   </div>
 </template>
 
@@ -36,8 +36,20 @@ export default {
   },
   methods:{
     swiperListChange(index){
-      this.swiperList_index = index
+      this.swiperList_index = index;
+
     },
+    click(){
+      this.$http.post('/api/backend/ShoppingCartRule/list.jhtml'
+      )
+        .then(res => {
+          console.log(res)
+        }).catch(err => {
+        console.log(err)
+      })
+      
+    }
+
   },
   created() {
     // this.$vux.toast.show({

@@ -6,7 +6,10 @@ import router from './router'
 // 
 import  { ToastPlugin } from 'vux'
 import { Flexbox, FlexboxItem } from 'vux'
-
+import axios from 'axios'
+  Vue.prototype.$http = axios.create({
+  timeout: 10 * 1000
+})
 Vue.component('flexbox', Flexbox)
 Vue.component('flexbox-item', FlexboxItem)
 // 该组件支持以plugin形式调用：
